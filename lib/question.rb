@@ -1,5 +1,4 @@
 class Question
-  attr_reader :version
 
   def initialize(film, directors)
     @film = film
