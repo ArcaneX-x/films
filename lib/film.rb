@@ -3,7 +3,7 @@ class Film
 
   def initialize(title, director, year)
     @title = title.strip
-    @director = director
-    @year = year
+    @director = director.strip
+    @year = year.strip
   end
 end

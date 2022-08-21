@@ -1,16 +1,25 @@
 class Question
-
+  attr_reader :film, :directors, :options
   def initialize(film, directors)
     @film = film
     @directors = directors
-    @version = (@directors - [@film.director]).sample(3).push(@film.director)
   end
 
-  def print_versions
-    @version.shuffle!
+  def answer_is_correct?(user_answer)
+    user_answer == correct_answer
   end
 
-  def right_answer?(user_answer)
-    @version[user_answer - 1] == @film.director
+  def correct_answer
+    film.director
+  end
+
+  def options
+    @options ||= (question_options.sample(3) << film.director).shuffle
+  end
+
+  private
+
+  def question_options
+    directors.uniq - Array(film.director)
   end
 end
