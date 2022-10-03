@@ -5,10 +5,7 @@ QUESTION_NUMBER = 3
 
 paths = Dir[File.join(__dir__, 'data', '*.txt')]
 
-films = paths.map do |path|
-  lines = File.readlines(path, chomp: true)
-  Film.new(*lines)
-end
+films = Film.read_from_dir(paths)
 
 puts 'Добрый день, любитель кино!'
 puts 'Давай посмотрим, хорошо ли ты знаешь какой режиссер какой фильм снял?'
