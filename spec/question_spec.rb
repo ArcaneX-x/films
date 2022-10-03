@@ -20,7 +20,7 @@ RSpec.describe Question do
   describe '#answer_is_correct' do
     let(:question) { Question.new(film, directors) }
     it 'check if the correct answer is true' do
-      expect(question.answer_is_correct?('Энтони Руссо')).to eq true
+      expect(question.answer_is_correct?('Энтони Руссо')).to be true
     end
   end
 
